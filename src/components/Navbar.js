@@ -85,7 +85,7 @@ const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1, my: 3 }} />
           <Typography
             variant="h5"
             noWrap
@@ -107,6 +107,8 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
+                variant="outlined"
+                color="warning"
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, mx: 10, color: "white", display: "block" }}
@@ -117,7 +119,7 @@ const ResponsiveAppBar = () => {
           </Box>
           <Badge badgeContent={4} color="secondary">
             <IconButton
-              sx={{ color: "white", backgroundColor: 'black' }}
+              sx={{ color: "white", backgroundColor: 'black', ":hover": {backgroundColor: 'green'} }}
               aria-label="add to shopping cart"
             >
               <ShoppingCartIcon />
