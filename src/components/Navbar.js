@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom"
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -13,7 +14,20 @@ import AdbIcon from "@mui/icons-material/Adb"
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart"
 import Badge from "@mui/material/Badge"
 
-const pages = ["Home", "Store", "Cart"]
+const pages = [
+  {
+    name: 'Home',
+    to: '/'
+  },
+  {
+    name: 'Store',
+    to: '/store'
+  },
+  {
+    name: 'cart',
+    to: '/cart'
+  }
+]
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null)
@@ -79,8 +93,8 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} component={Link} to={page.to} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -107,13 +121,14 @@ const ResponsiveAppBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
+                href={page.to}
                 variant="outlined"
                 color="warning"
-                key={page}
+                key={page.name}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, mx: 10, color: "white", display: "block" }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
