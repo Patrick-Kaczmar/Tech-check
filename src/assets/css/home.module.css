@@ -1,0 +1,12 @@
+.aside {
+    position: relative;
+    height: 93vh;
+    width: 20%;
+    background-image: radial-gradient(circle, black, grey, blue, green, red, orange, purple);
+}
+
+.paintImg {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+}
