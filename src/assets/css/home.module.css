@@ -1,7 +1,7 @@
 .aside {
     position: relative;
     float: left;
-    height: 93vh;
+    height: 900px;
     width: 20%;
     background-image: radial-gradient(circle, black, grey, blue, green, red, orange, purple);
 }
@@ -10,4 +10,20 @@
     position: absolute;
     width: 100%;
     top: 20%;
+}
+
+.logo {
+    text-align: center;
+    background-color: red;
+    margin-top: 7rem;
+}
+
+.paperContent {
+    width: 800px;
+    margin: auto;
+    display: table;
+}
+
+.paperContainer {
+    margin-top: 8rem;
 }

@@ -41,7 +41,7 @@ const ResponsiveAppBar = () => {
   }
 
   return (
-    <AppBar position="static" sx={{height: '7vh'}}>
+    <AppBar position="static" sx={{height: '70px'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
