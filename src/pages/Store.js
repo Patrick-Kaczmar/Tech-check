@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react"
+import StoreCard from "../components/StoreCard"
 
 export default function Store() {
-    return (
-        <>
-            <div>this is the store page</div>
-        </>
-    )
+
+  return (
+    <>
+      <StoreCard />
+    </>
+  )
 }
