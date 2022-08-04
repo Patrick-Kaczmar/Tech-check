@@ -16,5 +16,4 @@ export default function Products({ products, onAddToCart }) {
             </Grid>
         </main>
     )
-    
 }
