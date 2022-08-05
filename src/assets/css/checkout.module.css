@@ -5,3 +5,35 @@
 .toolbar {
     margin-top: 90px;
 }
+
+.paper {
+    margin-top: 140px;
+    margin-bottom: 80px;
+    padding: 0px 200px;
+}
+
+.stepper {
+    padding: 30px 0px 30px 0px;
+}
+
+.layout {
+    margin-top: 5%;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: auto;
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.divider {
+    margin: 20px 0;
+}
+
+.spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
