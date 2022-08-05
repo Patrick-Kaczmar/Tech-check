@@ -1,17 +1,17 @@
 import React from 'react'
-import styles from '../../assets/css/cart.module.css'
 import { Container, Typography, Button, Grid } from '@mui/material'
 import CartItem from './CartItem/CartItem'
 import { Link } from 'react-router-dom'
 
 export default function Cart({ cart, handleUpdateCartQty, handleRemoveFromCart, handleEmptyCart }) {
 
+
     if (!cart?.line_items) {
-        return <div className={styles.toolbar}>'Loading... no line items'</div>
+        return <div style={{marginTop: '90px'}}>'Loading... no line items'</div>
     }
 
     const EmptyCart = () => (
-        <Typography variant='subtitle1'>You have no items in your cart, <Link to='/' className={styles.link}>start adding some</Link>!</Typography>
+        <Typography variant='subtitle1'>You have no items in your cart, <Link to='/' style={{textDecoration: 'none'}}>start adding some</Link>!</Typography>
     )
 
     const FilledCart = () => (
@@ -23,13 +23,13 @@ export default function Cart({ cart, handleUpdateCartQty, handleRemoveFromCart, 
                     </Grid>
                 ))}
             </Grid>
-            <div className={styles.cardDetails}>
+            <div style={{display: 'flex', marginTop: '10%', width: '100%', justifyContent: 'space-between'}}>
                 <Typography variant='h4'>
                     Subtotal: { cart.subtotal.formatted_with_symbol }
                 </Typography>
                 <div>
-                    <Button className={styles.emptyButton} size='large' type='button' variant='contained' color='error' onClick={() => handleEmptyCart()}>Empty Cart</Button>
-                    <Button component={Link} to='/checkout' className={styles.checkoutButton} size='large' type='button' variant='contained' color='primary'>Checkout</Button>
+                    <Button style={{minWidth: '150px'}} size='large' type='button' variant='contained' color='error' onClick={() => handleEmptyCart()}>Empty Cart</Button>
+                    <Button component={Link} to='/checkout' style={{minWidth: '150px'}} size='large' type='button' variant='contained' color='primary'>Checkout</Button>
                 </div>
             </div>
         </>
@@ -37,8 +37,8 @@ export default function Cart({ cart, handleUpdateCartQty, handleRemoveFromCart, 
 
   return (
     <Container>
-        <div className={styles.toolbar}/>
-        <Typography className={styles.title} variant='h3' gutterBottom>Your Shopping Cart</Typography>
+        <div style={{marginTop: '90px'}}/>
+        <Typography style={{marginTop: '5%'}} variant='h3' gutterBottom>Your Shopping Cart</Typography>
         { !cart?.line_items.length ? <EmptyCart /> : <FilledCart />}
     </Container>
   )

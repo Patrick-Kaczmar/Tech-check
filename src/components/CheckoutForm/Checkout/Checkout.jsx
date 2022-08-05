@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button } from '@mui/material'
-import styles from '../../../assets/css/checkout.module.css'
+import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from '@mui/material'
 import AddressForm from '../AddressForm'
 import PaymentForm from '../PaymentForm'
 import { commerce } from '../../../lib/commerce'
@@ -19,7 +18,7 @@ export default function Checkout( {cart,  order, handleCaptureCheckout, error}) 
       try {
         const token = await commerce.checkout.generateTokenFrom('cart', cart.id)
 
-        console.log('is this firing?')
+        console.log('this is the token')
         console.log(token)
         setCheckoutToken(token)
       } catch (error){
@@ -30,7 +29,7 @@ export default function Checkout( {cart,  order, handleCaptureCheckout, error}) 
 
     generateToken()
   
-  }, [cart])
+  }, [cart, activeStep, navigate])
 
   const nextStep = () => setActiveStep((prevActiveState) => prevActiveState + 1)
   const backStep = () => setActiveStep((prevActiveState) => prevActiveState - 1)
@@ -45,14 +44,14 @@ export default function Checkout( {cart,  order, handleCaptureCheckout, error}) 
     <>
       <div>
         <Typography variant='h5'>Thank you for your purchase, {order.customer.firstname} {order.customer.lastname}</Typography>
-        <Divider  className={styles.divider}/>
+        <Divider style={{margin: '20px 0px'}}/>
         <Typography variant='subtitle2'>Order ref: {order.customer_reference}</Typography>
       </div>
       <br />
       <Button component={Link} to='/' variant='outlined' type='button'>Back to home</Button>
     </>
   ) : (
-    <div className={styles.spinner}>
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
       <CircularProgress />
     </div>
   )
@@ -71,11 +70,12 @@ export default function Checkout( {cart,  order, handleCaptureCheckout, error}) 
 
   return (
     <>
-      <div className={styles.toolbar}/>
-      <main className={styles.layout}>
-        <Paper className={styles.paper}>
+    <CssBaseline />
+      <div style={{marginTop: '90px'}}/>
+      <main style={{marginTop: '5%', width: 'auto', marginLeft: '25%', marginRight: '25%'}}>
+        <Paper style={{marginTop: '24px', marginBottom: '24px', padding: '16px'}}>
           <Typography variant='h4' align='center'>Checkout</Typography>
-          <Stepper activeStep={activeStep} className={styles.stepper}>
+          <Stepper activeStep={activeStep} style={{padding: '24px'}}>
             {steps.map((step) => (
               <Step key={step}>
                 <StepLabel>{step}</StepLabel>

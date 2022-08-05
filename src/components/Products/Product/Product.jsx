@@ -1,15 +1,14 @@
 import React from 'react'
 import { Card, CardMedia, CardContent, CardActions, Typography, IconButton } from '@mui/material'
 import { AddShoppingCart } from '@mui/icons-material'
-import styles from  '../../../assets/css/product.module.css'
 
 export default function Product({props, onAddToCart}) {
 
   return (
-    <Card className={styles.root}>
-        <CardMedia className={styles.media} image={props.image.url} title={props.name} />
+    <Card style={{maxWidth: '100%'}}>
+        <CardMedia style={{height: '0px', padding: '56.25%'}} image={props.image.url} title={props.name} />
         <CardContent>
-            <div className={styles.cardContent}>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
                 <Typography variant='h5' gutterBottom>
                     {props.name}
                 </Typography>
@@ -19,7 +18,7 @@ export default function Product({props, onAddToCart}) {
             </div>
             <Typography dangerouslySetInnerHTML={{__html: props.description}} variant='body2' />
         </CardContent>
-        <CardActions disableSpacing className={styles.cardActions}>
+        <CardActions style={{display: 'flex', justifyContent: 'flex-end'}} disableSpacing>
             <IconButton aria-label='Add to Cart' onClick={() => onAddToCart(props.id, 1)}>
                 <AddShoppingCart />
             </IconButton>
