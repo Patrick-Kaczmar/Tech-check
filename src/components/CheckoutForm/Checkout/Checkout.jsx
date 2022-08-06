@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import styles from  '../../../assets/css/checkout.module.css'
 import { Paper, Stepper, Step, StepLabel, Typography, CircularProgress, Divider, Button, CssBaseline } from '@mui/material'
 import AddressForm from '../AddressForm'
 import PaymentForm from '../PaymentForm'
@@ -72,7 +73,7 @@ export default function Checkout( {cart,  order, handleCaptureCheckout, error}) 
     <>
     <CssBaseline />
       <div style={{marginTop: '90px'}}/>
-      <main style={{marginTop: '5%', width: 'auto', marginLeft: '25%', marginRight: '25%'}}>
+      <main className={styles.yes}>
         <Paper style={{marginTop: '24px', marginBottom: '24px', padding: '16px'}}>
           <Typography variant='h4' align='center'>Checkout</Typography>
           <Stepper activeStep={activeStep} style={{padding: '24px'}}>
