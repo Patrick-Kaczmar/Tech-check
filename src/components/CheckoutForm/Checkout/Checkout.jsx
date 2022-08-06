@@ -8,28 +8,26 @@ import { Link, useNavigate } from 'react-router-dom'
 
 const steps = ['Shipping address', 'Payment details']
 
-export default function Checkout( {cart,  order, handleCaptureCheckout, error}) {
+export default function Checkout( {cart,  order, handleCaptureCheckout, error, refreshCart}) {
   const [activeStep, setActiveStep] = useState(0)
   const [checkoutToken, setCheckoutToken] = useState(null)
   const [shippingData, setShippingData] = useState({})
   let navigate = useNavigate()
 
   useEffect(() => {
-    const generateToken = async () => {
+    if (cart.line_items) {
+      const generateToken = async () => {
       try {
         const token = await commerce.checkout.generateTokenFrom('cart', cart.id)
-
         console.log('this is the token')
         console.log(token)
         setCheckoutToken(token)
       } catch (error){
         console.log(error)
         if (activeStep !== steps.length) navigate('/')
-      }
+      }}
+      generateToken()
     }
-
-    generateToken()
-  
   }, [cart, activeStep, navigate])
 
   const nextStep = () => setActiveStep((prevActiveState) => prevActiveState + 1)
@@ -49,7 +47,7 @@ export default function Checkout( {cart,  order, handleCaptureCheckout, error}) 
         <Typography variant='subtitle2'>Order ref: {order.customer_reference}</Typography>
       </div>
       <br />
-      <Button component={Link} to='/' variant='outlined' type='button'>Back to home</Button>
+      <Button component={Link} to='/' onClick={() => refreshCart()} variant='outlined' type='button'>Back to home</Button>
     </>
   ) : (
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
