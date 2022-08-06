@@ -38,7 +38,7 @@ export default function Cart({ cart, handleUpdateCartQty, handleRemoveFromCart, 
   return (
     <Container>
         <div style={{marginTop: '90px'}}/>
-        <Typography style={{marginTop: '5%'}} variant='h3' gutterBottom>Your Shopping Cart</Typography>
+        <Typography style={{marginTop: '5%', textAlign: 'center'}} variant='h3' gutterBottom>Your Shopping Cart</Typography>
         { !cart?.line_items.length ? <EmptyCart /> : <FilledCart />}
     </Container>
   )

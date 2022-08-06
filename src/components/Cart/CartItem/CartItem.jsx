@@ -5,7 +5,7 @@ export default function CartItem({ item, handleUpdateCartQty, handleRemoveFromCa
 
   return (
     <Card>
-        <CardMedia image={item.image.url} alt={item.name} style={{height: '260px'}}/>
+        <CardMedia image={item.image.url} alt={item.name} style={{height: '276px', width: '276px', margin: 'auto'}}/>
         <CardContent style={{display: 'flex', justifyContent: 'space-between'}}>
             <Typography variant='h4'>{item.name}</Typography>
             <Typography variant='h5'>{item.line_total.formatted_with_symbol}</Typography>
